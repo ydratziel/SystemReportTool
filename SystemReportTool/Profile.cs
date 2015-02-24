@@ -18,6 +18,46 @@ namespace SystemReportTool
 
     }
 
+    class ComputerSystem : Profile
+    {
+        private DataObject SystemResult = new DataObject();
+
+        public ComputerSystem()
+        {
+            this.SystemResult.Name = "ComputerSystem";
+        }
+
+        public void Info()
+        {
+            WMI Profile = new WMI();
+            Profile.SetParam("Win32_ComputerSystem");
+            Profile.RunMetric();
+            this.SystemResult.Items.Add(Profile.Package("Info"));
+        }
+        
+        public void Enclosure()
+        {
+            WMI Profile = new WMI();
+            Profile.SetParam("win32_systemenclosure");
+            Profile.RunMetric();
+            this.SystemResult.Items.Add(Profile.Package("Enclosure"));
+        }
+
+        public void Date()
+        {
+            WMI Profile = new WMI();
+            Profile.SetParam("win32_bios");
+            Profile.RunMetric();
+            this.SystemResult.Items.Add(Profile.Package("Date"));
+        }
+
+        public DataObject GetResult()
+        {
+            return SystemResult;
+        }
+
+    }
+
     class Hardware : Profile 
     {
         private DataObject HardwareResult = new DataObject(); 
@@ -73,14 +113,6 @@ namespace SystemReportTool
             Profile.SetParam("win32_operatingsystem");
             Profile.RunMetric();
             this.OperatingSystemResult.Items.Add(Profile.Package("OS"));
-        }
-
-        public void Date()
-        {
-            WMI Profile = new WMI();
-            Profile.SetParam("win32_bios");
-            Profile.RunMetric();
-            this.OperatingSystemResult.Items.Add(Profile.Package("Date"));
         }
 
         public void DxVersion()

@@ -22,16 +22,23 @@ namespace SystemReportTool
 
         public TestFull() 
         {
-            Request.ProgressBar.ProgressBarMax = 11;
+            Request.ProgressBar.ProgressBarMax = 13;
             Request.ProgressBar.ProgressBarValue = 0;
         }
         
         public override void RunTest()
-        {          
+        {
+            ComputerSystem TestSystem = new ComputerSystem();
+            TestSystem.Info();
+            Request.ProgressBar.ProgressBarValue++;
+            TestSystem.Enclosure();
+            Request.ProgressBar.ProgressBarValue++;
+            TestSystem.Date();
+            Request.ProgressBar.ProgressBarValue++;
+            this.ResultTestFull.Add(TestSystem.GetResult());
+
             OperatingSystem TestOperatingSystem = new OperatingSystem();
             TestOperatingSystem.OS();
-            Request.ProgressBar.ProgressBarValue++;
-            TestOperatingSystem.Date();
             Request.ProgressBar.ProgressBarValue++;
             TestOperatingSystem.DxVersion();
             Request.ProgressBar.ProgressBarValue++;
@@ -100,7 +107,7 @@ namespace SystemReportTool
 
         public TestOperatingSystem() 
         {
-            Request.ProgressBar.ProgressBarMax = 3;
+            Request.ProgressBar.ProgressBarMax = 2;
             Request.ProgressBar.ProgressBarValue = 0;
         }
         
@@ -110,8 +117,6 @@ namespace SystemReportTool
          
             OperatingSystem TestOperatingSystem = new OperatingSystem();
             TestOperatingSystem.OS();
-            Request.ProgressBar.ProgressBarValue++;
-            TestOperatingSystem.Date();
             Request.ProgressBar.ProgressBarValue++;
             TestOperatingSystem.DxVersion();
             Request.ProgressBar.ProgressBarValue++;

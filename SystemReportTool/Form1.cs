@@ -117,30 +117,6 @@ namespace SystemReportTool
             tableLayoutPanel1.Controls.Add(treeListView);
         }
 
-        
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -182,21 +158,6 @@ namespace SystemReportTool
             
         }
 
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -212,41 +173,6 @@ namespace SystemReportTool
         {
             string dtf = DateTime.Now.ToString("yyyyMMdd");
             this.XmlReport.Save("Report-" + dtf + ".xml");
-        }
-
-        private void Request_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void xMLReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,16 +228,6 @@ namespace SystemReportTool
             progressBar1.Value = e.ProgressPercentage;
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             button2.Enabled = true;
@@ -323,5 +239,81 @@ namespace SystemReportTool
             clearDataToolStripMenuItem.Enabled = false;
             button3.Enabled = false;
         }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Request_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

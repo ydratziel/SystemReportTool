@@ -12,6 +12,8 @@ namespace SystemReportTool
 
         public Filter() 
         {
+            this.Filters.Add("Info", new List<string>() { "Manufacturer", "Model", "SystemType", "ThermalState", "Status" });
+            this.Filters.Add("Enclosure", new List<string>() { "Name", "Manufacturer", "ChassisTypes"});
             this.Filters.Add("OS", new List<string>() { "Caption", "OSArchitecture", "Version" });
             this.Filters.Add("Processor", new List<string>() { "DeviceID", "Name", "MaxClockSpeed", "SocketDesignation" });
             this.Filters.Add("Memory", new List<string>() { "Name", "Capacity", "BankLabel" });

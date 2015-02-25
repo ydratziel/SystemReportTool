@@ -28,7 +28,7 @@ namespace SystemReportTool
         {
             XElement header = new XElement("Header");
             XElement subheader = new XElement("Reporting");
-            subheader.Add(new XElement("Version", "Beta 0.5.0"));
+            subheader.Add(new XElement("Version", "0.5.0.0-beta"));
             subheader.Add(new XElement("Date", DateTime.Now.ToString()));
             header.Add(subheader);
             this.Items.Add(header);

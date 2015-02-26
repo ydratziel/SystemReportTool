@@ -24,11 +24,17 @@ namespace SystemReportTool
     {
         private string provider;
         private string condition;
+        private ManagementScope scope;
         private ManagementObjectCollection metric;
 
         public WMI() 
         {
-            
+            this.scope = new ManagementScope("root\\CIMV2");
+        }
+
+        public WMI(string scope) 
+        {
+            this.scope = new ManagementScope(scope);
         }
 
         public override void SetParam(string provider)
@@ -55,8 +61,10 @@ namespace SystemReportTool
             {
                 query = "SELECT * FROM " +  this.provider + " WHERE " + this.condition;
             }
-                        
-            ManagementObjectSearcher mosQuery = new ManagementObjectSearcher(query);
+
+            SelectQuery q = new SelectQuery(query);
+
+            ManagementObjectSearcher mosQuery = new ManagementObjectSearcher(this.scope, q);
             ManagementObjectCollection queryCollection = mosQuery.Get();
                                 
             this.metric = queryCollection;

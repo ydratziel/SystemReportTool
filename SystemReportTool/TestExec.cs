@@ -22,7 +22,7 @@ namespace SystemReportTool
 
         public TestFull() 
         {
-            Request.ProgressBar.ProgressBarMax = 13;
+            Request.ProgressBar.ProgressBarMax = 16;
             Request.ProgressBar.ProgressBarValue = 0;
         }
         
@@ -39,6 +39,10 @@ namespace SystemReportTool
 
             OperatingSystem TestOperatingSystem = new OperatingSystem();
             TestOperatingSystem.OS();
+            Request.ProgressBar.ProgressBarValue++;
+            TestOperatingSystem.Antivirus();
+            Request.ProgressBar.ProgressBarValue++;
+            TestOperatingSystem.Firewall();
             Request.ProgressBar.ProgressBarValue++;
             TestOperatingSystem.DxVersion();
             Request.ProgressBar.ProgressBarValue++;
@@ -63,6 +67,8 @@ namespace SystemReportTool
             TestNetwork.TracertTest("www.google.ca", 30);
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.3dxchat.com", 30);
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PortTest("198.105.215.52", 8124);
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestFull.Add(TestNetwork.GetResult());
         }
@@ -107,7 +113,7 @@ namespace SystemReportTool
 
         public TestOperatingSystem() 
         {
-            Request.ProgressBar.ProgressBarMax = 2;
+            Request.ProgressBar.ProgressBarMax = 4;
             Request.ProgressBar.ProgressBarValue = 0;
         }
         
@@ -117,6 +123,10 @@ namespace SystemReportTool
          
             OperatingSystem TestOperatingSystem = new OperatingSystem();
             TestOperatingSystem.OS();
+            Request.ProgressBar.ProgressBarValue++;
+            TestOperatingSystem.Antivirus();
+            Request.ProgressBar.ProgressBarValue++;
+            TestOperatingSystem.Firewall();
             Request.ProgressBar.ProgressBarValue++;
             TestOperatingSystem.DxVersion();
             Request.ProgressBar.ProgressBarValue++;
@@ -135,7 +145,7 @@ namespace SystemReportTool
 
         public TestNetwork() 
         {
-            Request.ProgressBar.ProgressBarMax = 5;
+            Request.ProgressBar.ProgressBarMax = 6;
             Request.ProgressBar.ProgressBarValue = 0;
         }
 
@@ -153,6 +163,8 @@ namespace SystemReportTool
             TestNetwork.TracertTest("www.google.ca", 30);
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.3dxchat.com", 30);
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PortTest("198.105.215.52", 8124);
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestNetwork.Add(TestNetwork.GetResult());
         }

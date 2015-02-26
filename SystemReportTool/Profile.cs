@@ -115,6 +115,22 @@ namespace SystemReportTool
             this.OperatingSystemResult.Items.Add(Profile.Package("OS"));
         }
 
+        public void Antivirus()
+        {
+            WMI Profile = new WMI("root\\SecurityCenter2");
+            Profile.SetParam("AntivirusProduct");
+            Profile.RunMetric();
+            this.OperatingSystemResult.Items.Add(Profile.Package("Antivirus"));
+        }
+
+        public void Firewall()
+        {
+            WMI Profile = new WMI("root\\SecurityCenter2");
+            Profile.SetParam("FirewallProduct");
+            Profile.RunMetric();
+            this.OperatingSystemResult.Items.Add(Profile.Package("Firewall"));
+        }
+
         public void DxVersion()
         {
             Dictionary<string, string> DirectxVers = new Dictionary<string, string>();
@@ -169,6 +185,15 @@ namespace SystemReportTool
             Native Profile = new Native();
             Profile.SetMetric(Trace.Traceroute(host, hops));
             this.NetworkResult.Items.Add(Profile.Package("Tracert"));
+        }
+
+        public void PortTest(string host, int port) 
+        {
+            Native Profile = new Native();
+            TestPort SendTestPort = new TestPort();
+            SendTestPort.SetParam(host, port);
+            Profile.SetMetric(SendTestPort.Execute());
+            this.NetworkResult.Items.Add(Profile.Package("Port"));
         }
 
         public DataObject GetResult()

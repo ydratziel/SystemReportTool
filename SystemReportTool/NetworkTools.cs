@@ -5,6 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
+using System.Net.Sockets;
 
 namespace SystemReportTool
 {
@@ -157,4 +158,41 @@ namespace SystemReportTool
 			return TracertCollection;
 		}
 	}
+
+    public class TestPort 
+    {
+
+        private string Host;
+        private int Port;
+        
+        public TestPort() 
+        { 
+        }
+
+        public void SetParam(string args, int port)
+        {
+            this.Host = args;
+            this.Port = port;
+        }
+
+        public Dictionary<string, string> Execute() 
+        {
+            string value;
+            Dictionary<string, string> ResultPortConn = new Dictionary<string,string>();
+
+            TcpClient tcpClient = new TcpClient();
+
+            try {
+            tcpClient.Connect(this.Host, this.Port);
+                value = "Open";
+            } catch (Exception) {
+                value = "Close";
+            }
+
+            ResultPortConn.Add("Host", this.Host);
+            ResultPortConn.Add("Port", Convert.ToString(this.Port));
+            ResultPortConn.Add("Status", value);
+            return ResultPortConn;
+        }
+    }
 }

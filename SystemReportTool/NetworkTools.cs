@@ -20,6 +20,7 @@ namespace SystemReportTool
         private int Timeout;
         private int Count = 1;
         private string Host;
+        private string Label;
         
 
         public Pinging() 
@@ -29,15 +30,17 @@ namespace SystemReportTool
             this.Buffer = Encoding.ASCII.GetBytes(this.Data);
         }
 
-        public void SetParam(string args)
+        public void SetParam(string args, string label)
         {
             this.Host = args;
+            this.Label = label;
         }
 
-        public void SetParam(string args, int count)
+        public void SetParam(string args, int count, string label)
         {
             this.Host = args;
             this.Count = count;
+            this.Label = label;
         }
 
         public Dictionary<string, string> Execute() 
@@ -49,7 +52,7 @@ namespace SystemReportTool
             string name;
             string value;
             Dictionary<string, string> PingCollection = new Dictionary<string, string>();
-            PingCollection.Add("Host", this.Host);
+            PingCollection.Add("Label", this.Label);
 
             while (i < this.Count) 
             {
@@ -164,15 +167,17 @@ namespace SystemReportTool
 
         private string Host;
         private int Port;
+        private string Label;
         
         public TestPort() 
         { 
         }
 
-        public void SetParam(string args, int port)
+        public void SetParam(string args, int port, string label)
         {
             this.Host = args;
             this.Port = port;
+            this.Label = label;
         }
 
         public Dictionary<string, string> Execute() 
@@ -189,7 +194,7 @@ namespace SystemReportTool
                 value = "Close";
             }
 
-            ResultPortConn.Add("Host", this.Host);
+            ResultPortConn.Add("Label", this.Label);
             ResultPortConn.Add("Port", Convert.ToString(this.Port));
             ResultPortConn.Add("Status", value);
             return ResultPortConn;

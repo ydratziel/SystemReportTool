@@ -171,11 +171,11 @@ namespace SystemReportTool
             this.NetworkResult.Name = "Network";
         }
         
-        public void PingTest(string host, int count)
+        public void PingTest(string host, int count, string label)
         {
             Native Profile = new Native();
             Pinging SendPings = new Pinging();
-            SendPings.SetParam(host, count);
+            SendPings.SetParam(host, count, label);
             Profile.SetMetric(SendPings.Execute());
             this.NetworkResult.Items.Add(Profile.Package("Ping"));
         }
@@ -187,11 +187,11 @@ namespace SystemReportTool
             this.NetworkResult.Items.Add(Profile.Package("Tracert"));
         }
 
-        public void PortTest(string host, int port) 
+        public void PortTest(string host, int port, string label) 
         {
             Native Profile = new Native();
             TestPort SendTestPort = new TestPort();
-            SendTestPort.SetParam(host, port);
+            SendTestPort.SetParam(host, port, label);
             Profile.SetMetric(SendTestPort.Execute());
             this.NetworkResult.Items.Add(Profile.Package("Port"));
         }

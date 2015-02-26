@@ -22,7 +22,7 @@ namespace SystemReportTool
 
         public TestFull() 
         {
-            Request.ProgressBar.ProgressBarMax = 16;
+            Request.ProgressBar.ProgressBarMax = 18;
             Request.ProgressBar.ProgressBarValue = 0;
         }
         
@@ -56,19 +56,23 @@ namespace SystemReportTool
             TestHardware.VideoController();
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestFull.Add(TestHardware.GetResult());
-            
+
             Network TestNetwork = new Network();
-            TestNetwork.PingTest("www.google.com", 10);
+            TestNetwork.PingTest("www.google.com", 10, "Google Website");
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PingTest("8.8.8.8", 10);
+            TestNetwork.PingTest("8.8.8.8", 10, "Test IP Google");
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PingTest("www.3dxchat.com", 10);
+            TestNetwork.PingTest("www.3dxchat.com", 10, "3DXChat Website");
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PingTest("198.105.215.52", 10, "US Server");
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.google.ca", 30);
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.3dxchat.com", 30);
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PortTest("198.105.215.52", 8124);
+            TestNetwork.PortTest("198.105.215.52", 8124, "USdirect");
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PortTest("54.72.64.172", 8124, "EUproxy");
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestFull.Add(TestNetwork.GetResult());
         }
@@ -145,7 +149,7 @@ namespace SystemReportTool
 
         public TestNetwork() 
         {
-            Request.ProgressBar.ProgressBarMax = 6;
+            Request.ProgressBar.ProgressBarMax = 8;
             Request.ProgressBar.ProgressBarValue = 0;
         }
 
@@ -154,17 +158,21 @@ namespace SystemReportTool
             List<DataObject> ResultTestNetwork = new List<DataObject>();
 
             Network TestNetwork = new Network();
-            TestNetwork.PingTest("www.google.com", 10);
+            TestNetwork.PingTest("www.google.com", 10, "Google Website");
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PingTest("8.8.8.8", 10);
+            TestNetwork.PingTest("8.8.8.8", 10, "Test IP Google");
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PingTest("www.3dxchat.com", 10);
+            TestNetwork.PingTest("www.3dxchat.com", 10, "3DXChat Website");
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PingTest("198.105.215.52", 10, "US Server");
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.google.ca", 30);
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.3dxchat.com", 30);
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PortTest("198.105.215.52", 8124);
+            TestNetwork.PortTest("198.105.215.52", 8124, "US Direct");
+            Request.ProgressBar.ProgressBarValue++;
+            TestNetwork.PortTest("54.72.64.172", 8124, "EU Proxy");
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestNetwork.Add(TestNetwork.GetResult());
         }

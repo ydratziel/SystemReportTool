@@ -70,9 +70,9 @@ namespace SystemReportTool
             Request.ProgressBar.ProgressBarValue++;
             TestNetwork.TracertTest("www.3dxchat.com", 30);
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PortTest("198.105.215.52", 8124, "USdirect");
+            TestNetwork.PortTest("198.105.215.52", 8124, "US Direct");
             Request.ProgressBar.ProgressBarValue++;
-            TestNetwork.PortTest("54.72.64.172", 8124, "EUproxy");
+            TestNetwork.PortTest("54.72.64.172", 8124, "EU Proxy");
             Request.ProgressBar.ProgressBarValue++;
             this.ResultTestFull.Add(TestNetwork.GetResult());
         }
